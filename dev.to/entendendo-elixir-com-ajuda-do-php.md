@@ -8,14 +8,12 @@ Para quem nunca teve contato com uma linguagem funcional pode ser um pouco difí
 
 O que fiz foi implementar a mesma funcionalidade com linguagens diferentes para que você possa comparar a **lógica** de uma linguagem mais familiar com uma que talvez não seja.
 
-**Vou abordar as funcionalidades do Elixir que mais utilizo no dia-a-dia**, meio que aplicando a regra 80/20, mas tenho certeza que com esse conhecimento você poderá ao menos ler um arquivo `.ex` ou `.exs` e não se perder completamente, caso você seja novo na linguagem.
+**Vou abordar as funcionalidades do Elixir que mais utilizo no dia-a-dia**, meio que aplicando a regra 80/20, mas tenho certeza que com esse conhecimento você poderá ao menos ler um arquivo `.exs` ou `.exs` e não se perder completamente, caso você seja novo na linguagem.
 
 
-## <center>First things first!</center>
+#### Antes de começarmos...
 
-Caso você não conheça a syntax da linguage, seus operadores e primitivos sugiro a leitura do [_Starting Guide_](https://elixir-lang.org/getting-started/introduction.html) na documentação oficial do Elixir.
-
-Não precisa necessariamente ler por completo já que esse artigo usa o guia, citado acima, como referência.
+Caso você não conheça absolutamente nada sobre Elixir, como é a syntax, seus operadores e primitivos sugiro a leitura do [_Starting Guide_](https://elixir-lang.org/getting-started/introduction.html) na documentação oficial.
 
 Sem mais demoras, vamos ao código!
 
@@ -43,8 +41,8 @@ iex(4)> c
 "Fortaleza"
 
 # Another example
-iex(5)> {_, "Equador", country} = {"Brazil", "Equador", "Chile"}
-{"Brazil", "Equador", "Chile"}
+iex(5)> {_, "Ecuador", country} = {"Brasil", "Ecuador", "Chile"}
+{"Brasil", "Ecuador", "Chile"}
 
 iex(6)> country
 "Chile"
@@ -65,7 +63,7 @@ iex(3)> tail
 ["Hello", "Hola"]
 ```
 
-Caso uma tupla não possa ser equiparada com o lado esquerdo do operador, isso é, caso a tupla tenha número de campos diferente ou algum valor que não condiz com o lado esquerdo do `=` uma exception acontecerá:
+Caso uma tupla não possa ser equiparada com o lado esquerdo do operador, isso é, caso a tupla tenha número de campos diferente ou algum valor que não condiz com o lado esquerdo do `=` uma _exception_ acontecerá:
 
 ```sh
 # iex
@@ -75,19 +73,19 @@ iex(1)> {a, b} = {"São Paulo", "Rio de Janeiro", "Fortaleza"}
 #    (stdlib) erl_eval.erl:453: :erl_eval.expr/5
 #    ...
 
-iex(1)> {_, "United States", country} = {"Brazil", "Equador", "Chile"}
-# ** (MatchError) no match of right hand side value: {"Brazil", "Equador", "Chile"}
+iex(1)> {_, "United States", country} = {"Brasil", "Ecuador", "Chile"}
+# ** (MatchError) no match of right hand side value: {"Brasil", "Ecuador", "Chile"}
 #    (stdlib) erl_eval.erl:453: :erl_eval.expr/5
 #    ...
 ```
 
-Os exemplos acima exemplificam a primera parte da definição de _pattern matching_. E quanto a parte que fala que podemos procurar padrões em funções? Vamos dar uma olhada.
+Os exemplos acima exemplificam a primeira parte da definição de _pattern matching_. E quanto a parte que fala que podemos procurar padrões em funções? Vamos dar uma olhada.
 
 Para ajudar no entendimento dessa vez vou criar uma classe semelhante em PHP.
 
 Classe PHP
 ```php
-# ./GreetUser.php
+// ./GreetUser.php
 
 <?php
 
@@ -125,7 +123,7 @@ Mas vamos supor que nem sempre eu teria o nome do meu usuário disponível. Em d
 
 Classe PHP
 ```php
-# ./GreetUser.php
+// ./GreetUser.php
 
 <?php
 
@@ -184,7 +182,7 @@ Qualquer tipo primitivo da linguagem pode ser utilizado para _pattern matching_.
 
 Classe em PHP
 ```php
-# ./GreetUser.php
+// ./GreetUser.php
 
 <?php
 
@@ -225,7 +223,7 @@ GreetUser.hello("Joe")
 GreetUser.hello("Jane")
 ```
 
-Dessa vez além de especificarmos qual seria o valor de `user_name` nós também adicionamos o _match operator_ no parâmetro da função: `("Jane" = user_name)`. Fizemos isso para que possamos utilizar o valor dentro da função. Caso não quisessemos utilizar o parâmetro podemos omiti-lo `("Jane")` ou adicionar um `_` _underscore_ na frente dele `("Jane" = _user_name)`. Com isso o Elixir entende que você está desprezando esse valor e que ele não será utilizado.
+Dessa vez além de especificarmos qual seria o valor de `user_name` nós também adicionamos o _match operator_ no parâmetro da função: `("Jane" = user_name)`. Fizemos isso para que possamos utilizar o valor dentro da função. Caso não quiséssemos utilizar o parâmetro podemos omiti-lo `("Jane")` ou adicionar um `_` _underscore_ na frente dele `("Jane" = _user_name)`. Com isso o Elixir entende que você está desprezando esse valor e que ele não será utilizado.
 
 **Variáveis declaradas, mas não utilizadas recebem um** `warning` **no momento da compilação do seu código, fique atento!**
 
@@ -263,7 +261,7 @@ Lembrando, que usando _guard_ ou _pattern matching_ você precisa pensar em uma 
 
 O Erro acima aconteceria se nós invocarmos com um inteiro, por exemplo:`GreetUser.hello(1)`.
 
-Como alternativa podemos adicionar mais uma declaração de `hello/1` despresando o parâmetro `user_name`. Como vimos antes, basta adicionarmos o _undersocre_ na frente do nome do parâmetro: `_user_name`. Ou simplesmente subistituirmos pelo `_`.
+Como alternativa podemos adicionar mais uma declaração de `hello/1` desprezando o parâmetro `user_name`. Como vimos antes, basta adicionarmos o _undersocre_ na frente do nome do parâmetro: `_user_name`. Ou simplesmente substituirmos pelo `_`.
 
 ```elixir
 # ./greet_user.exs
@@ -284,8 +282,8 @@ GreetUser.hello(1)
 ```
 
 ##### Importante!
-    A ordem de declaração das funções em linguagens funcionais é de extrema importância!
-No exemplo acima o uso de `hello/1` ficou restrita à parâmetros do tipo `string`. Como alternativa declaramos novamente `hello/1` **despresando** o parâmetro `user_name`. Até ai tudo legal, mas e se tivessemos invertido as ordens de declaração das funções colocando `hello(_)` antes da `hello/1` que possui _guard_?
+**A ordem de declaração das funções em linguagens funcionais é de extrema importância!**
+No exemplo acima o uso de `hello/1` ficou restrita à parâmetros do tipo `string`. Como alternativa declaramos novamente `hello/1` **desprezando** o parâmetro `user_name`. Até ai tudo legal, mas e se tivéssemos invertido as ordens de declaração das funções colocando `hello(_)` antes da `hello/1` que possui _guard_?
 
 ```elixir
 # ./greet_user.exs
@@ -322,7 +320,7 @@ Para exemplificar, agora nosso módulo `GreetUser` deve ser capaz de cumprimenta
 Além disso precisamos também tratar os nomes dos usuários para que eles fiquem capitalized, isso é, somente a primeira letra do seu nome em maiúsculo.
 
 ```elixir
-# ./greet_user.ex
+# ./greet_user.exs
 
 defmodule GreetUser do
     def hello_group(users_name) when is_list(users_name) do
@@ -339,7 +337,7 @@ Aproveitamos para adicionar um guard na nossa função para nos certificar de qu
 O próximo passo é manipular a lista aplicando os requisitos acima utilizando o _pipe operator_. Como primeiro passo, vamos percorrer a lista e normalizar os nomes. Faremos isso com a ajuda do módulo `Enum` que é um módulo nativo do Elixir para trabalhar com elementos enumeráveis, o que é o caso da nossa lista de nomes
 
 ```elixir
-# ./greet_user.ex
+# ./greet_user.exs
 
 defmodule GreetUser do
     def hello_group(users_name) when is_list(users_name) do
@@ -368,7 +366,7 @@ E o segundo parâmetro passado ao `map/2` foi uma função anônima (requerida p
 Em PHP podemos obter o mesmo resultado até aqui dessa forma:
 
 ```php
-# ./GreetUser.php
+// ./GreetUser.php
 
 <?php
 
@@ -393,7 +391,7 @@ O próximo passo nessa função é juntarmos todos os nomes em uma única string
 
 Módulo Elixir
 ```elixir
-# ./greet_user.ex
+# ./greet_user.exs
 
 defmodule GreetUser do
     def hello_group(users_name) when is_list(users_name) do
@@ -409,7 +407,7 @@ end
 
 Classe PHP
 ```php
-# ./GreetUser.php
+// ./GreetUser.php
 
 <?php
 
@@ -438,7 +436,7 @@ Nossa pipeline continua funcionando porque `map/2`, após ser executada, retorna
 Até agora o retorno de `hello_group/1` seria uma string contendo os nomes de usuários que foi passado à ela. Podemos utilizar `hello/1`, que recebe como primeiro parâmetro uma string, para exibir a mensagem padrão
 
 ```elixir
-# ./greet_user.ex
+# ./greet_user.exs
 
 defmodule GreetUser do
 
@@ -467,7 +465,7 @@ Adicionamos `hello/1` no final de nossa pipeline concluindo os requisitos exigid
 
 Veja como ficaria o mesmo código em PHP
 ```php
-# ./GreetUser.php
+// ./GreetUser.php
 
 <?php
 
@@ -503,10 +501,10 @@ $greetUser->helloGroup(["joe", "jane", "jim"]);
 
 Poderíamos melhorar o código PHP quebrando-o em diferentes funções, mas repare que mesmo dessa forma em Elixir temos um código MUITO mais limpo e legível.
 
-Caso você ainda esteja um pouco confuso em como o _pipe operator_ funciona, aqui está uma outra forma de vizualizar o mesmo código:
+Caso você ainda esteja um pouco confuso em como o _pipe operator_ funciona, aqui está uma outra forma de visualizar o mesmo código:
 
 ```elixir
-# ./greet_user.ex
+# ./greet_user.exs
 
 defmodule GreetUser do
 
@@ -537,7 +535,7 @@ GreetUser.hello_group(["joe", "jane", "jim"])
 GreetUser.hello_group(["joe", "jane", "jim"], :notpiped)
 ```
 
-Definimos duas funções `hello_group()`. Uma com [aridade](https://elixirschool.com/en/lessons/basics/functions/#function-naming-and-arity) `hello_group/1` e outra com `hello_group/2`. Apesar da aridade diferente, as duas executam o mesmo papel, mas a `hello_group/1` cria uma _pipeline_ enquanto a `hello_group/2` não, mas as duas chagam no mesmo resultado.
+Definimos duas funções `hello_group()`. Uma com [aridade](https://elixirschool.com/en/lessons/basics/functions/#function-naming-and-arity) `hello_group/1` e outra com `hello_group/2`. Apesar da aridade diferente, as duas executam o mesmo papel, mas a `hello_group/1` cria uma _pipeline_ enquanto a `hello_group/2` não, mas as duas chegam no mesmo resultado.
 
 Porém `hello_group/1` é bem mais legível e de fácil entendimento se comparada a `hello_group/2`, concordam? Esse é o propósito do _pipe operator_, deixar nosso código mais legível.
 
@@ -562,7 +560,7 @@ public function anotherFunction() {
         $param = "PHP";
     }
 
-    return $param.
+    return $param;
 }
 ```
 
@@ -582,14 +580,14 @@ end
 
 Dessa forma o retorno de `if` seria atribuído à nossa variável.
 
-Dito isso, vamos ver como o `with` funciona.
+## With
 
 Você pode pensar nele como uma _pipeline_ que checa o resultado de cada expressão e caso o resultado dessa expressão não foi o que você havia descrito ela não executa o código dentro dela. Ou você também pode validar o erro gerado pela expressão para tratá-lo de uma forma mais coerente.
 
-Para ilustrar melhor, vamos adicionar essa estrutura na nossa função `hello/1`. Criaremos também uma `dummy_function/0` que a única coisa que ela faz é retornar o _atom_ `:ok`, e em `hello/1` validaremos se `dummy_function/0` realmente volta `:ok`
+Para ilustrar melhor, vamos adicionar essa estrutura na nossa função `hello/1`. Criaremos também uma `dummy_function/0` que a única coisa que ela faz é retornar o _atom_ `:ok`, e em `hello/1` verificamos se `dummy_function/0` realmente volta `:ok`
 
 ```elixir
-# ./greet_user.ex
+# ./greet_user.exs
 
 defmodule GreetUser do
 
@@ -611,7 +609,7 @@ No código acima, a mensagem só será exibida caso `dummy_function/0` retornar 
 Se `dummy_function/0` não retornar o esperado, podemos adicionar uma cláusula também para que a gente seja avisado nesse caso.
 
 ```elixir
-# ./greet_user.ex
+# ./greet_user.exs
 
 defmodule GreetUser do
 
@@ -634,7 +632,7 @@ GreetUser.hello("Joe")
 Podemos também atribuir variáveis do lado esquerdo do `<-` ou `->` que nem fizemos quando vimos sobre _pattern matching_. Com isso é possível verificar o retorno da função e já atribuir uma variável
 
 ```elixir
-# ./greet_user.ex
+# ./greet_user.exs
 
 defmodule GreetUser do
 
@@ -656,7 +654,7 @@ end
 GreetUser.hello("Joe")
 ```
 
-No código acima checamos se `dummy_function/0` retorna `{:ok, _response}` Caso um erro ocorra e `dummy_function/0` retornar `{:error, "dummy function"}` nós vamos exibir `"dummy function"`, que foi o erro retornado. E ainda adicionamos uma cláusula default se `dummy_function/0` retornar algo totamente inesperado.
+No código acima checamos se `dummy_function/0` retorna `{:ok, _response}` Caso um erro ocorra e `dummy_function/0` retornar `{:error, "dummy function"}` nós vamos exibir `"dummy function"`, que foi o erro retornado. E ainda adicionamos uma cláusula default se `dummy_function/0` retornar algo totalmente inesperado.
 
 Agora que já temos um bom entendimento sobre o _with_ podemos criar uma _pipeline_ de funções cujo os retornos são verificados pelo with e podemos também tratar individualmente cada etapa:
 
