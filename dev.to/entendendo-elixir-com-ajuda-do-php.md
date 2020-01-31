@@ -8,7 +8,7 @@ Para quem nunca teve contato com uma linguagem funcional pode ser um pouco difí
 
 O que fiz foi implementar a mesma funcionalidade com linguagens diferentes para que você possa comparar a **lógica** de uma linguagem mais familiar com uma que talvez não seja.
 
-**Vou abordar as funcionalidades do Elixir que mais utilizo no dia-a-dia**, meio que aplicando a regra 80/20, mas tenho certeza que com esse conhecimento você poderá ao menos ler um arquivo `.exs` ou `.exs` e não se perder completamente, caso você seja novo na linguagem.
+**Vou abordar as funcionalidades do Elixir que mais utilizo no dia-a-dia**, meio que aplicando a regra 80/20, mas tenho certeza que com esse conhecimento você poderá ao menos ler um arquivo `.ex` ou `.exs` e não se perder completamente, caso você seja novo na linguagem.
 
 
 #### Antes de começarmos...
@@ -85,9 +85,8 @@ Para ajudar no entendimento dessa vez vou criar uma classe semelhante em PHP.
 
 Classe PHP
 ```php
-// ./GreetUser.php
-
 <?php
+// ./GreetUser.php
 
 class GreetUser
 {
@@ -123,9 +122,8 @@ Mas vamos supor que nem sempre eu teria o nome do meu usuário disponível. Em d
 
 Classe PHP
 ```php
-// ./GreetUser.php
-
 <?php
+// ./GreetUser.php
 
 class GreetUser
 {
@@ -182,9 +180,8 @@ Qualquer tipo primitivo da linguagem pode ser utilizado para _pattern matching_.
 
 Classe em PHP
 ```php
-// ./GreetUser.php
-
 <?php
+// ./GreetUser.php
 
 class GreetUser
 {
@@ -317,7 +314,7 @@ Com isso você pode criar _pipelines_ (sacou o nome?) de execução dada determi
 
 Para exemplificar, agora nosso módulo `GreetUser` deve ser capaz de cumprimentar diversas pessoas cujo os nomes serão enviados em forma de uma lista. Para fazer isso vamos criar uma função `hello_group/1` que recebe como argumento `users_name` que nada mais é do que uma lista contendo o nome dos usuários em string.
 
-Além disso precisamos também tratar os nomes dos usuários para que eles fiquem capitalized, isso é, somente a primeira letra do seu nome em maiúsculo.
+Além disso precisamos também tratar os nomes dos usuários para que eles fiquem capitalizados, isso é, somente a primeira letra do seu nome em maiúsculo.
 
 ```elixir
 # ./greet_user.exs
@@ -355,7 +352,7 @@ Vamos quebrar o código acima em pontos chaves:
 - Invocamos `|>` (pipe operator) abaixo de `users_name` poderia ser do lado direito também.
 - Invocamos `map/2` do módulo `Enum` para percorrer a lista de nomes e nos retornar uma lista
 - Passamos como segundo parâmetro de `map/2` uma função anônima `fn users_name -> end` que será executada para cada nome da lista
-- Dentro da função anônima utilizamos a função `capitalize/2` do módulo `String` também nativo do Elixir para capitalizar os nomes.
+- Dentro da função anônima utilizamos a função [`capitalize/2`](https://hexdocs.pm/elixir/String.html#capitalize/2) do módulo `String` também nativo do Elixir para capitalizar os nomes.
 
 O que precisa ser entendido desse código é que só passamos o segundo argumento para a função `map/2` porque o primeiro argumento que deve ser uma lista (no nosso caso a lista com os nomes dos usuários) já foi passada à essa função pelo `|>`.
 
@@ -366,9 +363,8 @@ E o segundo parâmetro passado ao `map/2` foi uma função anônima (requerida p
 Em PHP podemos obter o mesmo resultado até aqui dessa forma:
 
 ```php
-// ./GreetUser.php
-
 <?php
+// ./GreetUser.php
 
 class GreetUser
 {
@@ -407,9 +403,8 @@ end
 
 Classe PHP
 ```php
-// ./GreetUser.php
-
 <?php
+// ./GreetUser.php
 
 class GreetUser
 {
@@ -465,9 +460,8 @@ Adicionamos `hello/1` no final de nossa pipeline concluindo os requisitos exigid
 
 Veja como ficaria o mesmo código em PHP
 ```php
-// ./GreetUser.php
-
 <?php
+// ./GreetUser.php
 
 class GreetUser
 {
