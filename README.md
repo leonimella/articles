@@ -3,8 +3,8 @@ Esse repositório contém o texto final de artigos que escrevi no [Medium](https
 
 ## Dev
 - Entendendo Elixir com a ajuda do PHP
-    - [Raw MD file]()
-        - [Raw english MD file]()
+    - [Raw MD file](https://github.com/leonimella/articles/blob/master/dev.to/entendendo-elixir-com-ajuda-do-php/pt-br.md)
+        - [Raw english MD file](https://github.com/leonimella/articles/blob/master/dev.to/entendendo-elixir-com-ajuda-do-php/en.md)
     - [Dev.to post](https://dev.to/leonimella/entendendo-elixir-com-ajuda-de-php-20n2)
         - [Dev.to english post](https://dev.to/leonimella/learning-elixir-with-php-help-47mn)
 
