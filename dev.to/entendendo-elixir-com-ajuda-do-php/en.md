@@ -1,3 +1,5 @@
+🇧🇷 _Artigo original em português: [Entendendo Elixir com a ajuda de PHP](https://dev.to/leonimella/entendendo-elixir-com-ajuda-de-php-20n2)_
+
 After some years and differents experiences with PHP and some frameworks like WordPress, Laravel, Symfony and Phalcon, I had the opportunity to work with Elixir and since then it has been my go to language for new projects.
 
 For those who have never had a previous experience with a functional language this first contact could be a little confusing, that was my case when I first start with Elixir.

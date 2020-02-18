@@ -1,4 +1,5 @@
-# Entendendo Elixir com ajuda de PHP
+🇬🇧 _Would you like to read the article in english? [Learning Elixir with PHP help
+](https://dev.to/leonimella/learning-elixir-with-php-help-47mn)_
 
 Depois de alguns anos e diversas experiências em PHP utilizando WordPress, Laravel, Symfony e Phalcon, tive a oportunidade de trabalhar com Elixir e desde então ela tem sido a minha linguagem para desenvolvimento de novos projetos
 
@@ -339,7 +340,7 @@ O próximo passo é manipular a lista aplicando os requisitos acima utilizando o
 defmodule GreetUser do
     def hello_group(users_name) when is_list(users_name) do
         users_name
-        |> Enum.map(fn user_name -> String.captalize(user_name) end)
+        |> Enum.map(fn user_name -> String.capitalize(user_name) end)
     end
     def hello_group(_) do
         IO.puts("Only lists are allowed")
@@ -351,7 +352,7 @@ Vamos quebrar o código acima em pontos chaves:
 - Invocamos `users_name` dentro da nossa função
 - Invocamos `|>` (pipe operator) abaixo de `users_name` poderia ser do lado direito também.
 - Invocamos `map/2` do módulo `Enum` para percorrer a lista de nomes e nos retornar uma lista
-- Passamos como segundo parâmetro de `map/2` uma função anônima `fn users_name -> end` que será executada para cada nome da lista
+- Passamos como segundo parâmetro de `map/2` uma função anônima `fn user_name -> end` que será executada para cada nome da lista
 - Dentro da função anônima utilizamos a função [`capitalize/2`](https://hexdocs.pm/elixir/String.html#capitalize/2) do módulo `String` também nativo do Elixir para capitalizar os nomes.
 
 O que precisa ser entendido desse código é que só passamos o segundo argumento para a função `map/2` porque o primeiro argumento que deve ser uma lista (no nosso caso a lista com os nomes dos usuários) já foi passada à essa função pelo `|>`.
@@ -392,7 +393,7 @@ Módulo Elixir
 defmodule GreetUser do
     def hello_group(users_name) when is_list(users_name) do
         users_name
-        |> Enum.map(fn user_name -> String.captalize(user_name) end)
+        |> Enum.map(fn user_name -> String.capitalize(user_name) end)
         |> Enum.join(", ")
     end
     def hello_group(_) do
@@ -600,7 +601,7 @@ GreetUser.hello("Joe")
 
 No código acima, a mensagem só será exibida caso `dummy_function/0` retornar `:ok`. Se o retorno for outro a mensagem não será exibida.
 
-Se `dummy_function/0` não retornar o esperado, podemos adicionar uma cláusula também para que a gente seja avisado nesse caso.
+Se `dummy_function/0` não retornar o esperado, podemos adicionar uma cláusula para tratar o resultado.
 
 ```elixir
 # ./greet_user.exs
@@ -667,14 +668,14 @@ def hello(user_name)do
 end
 ```
 
-O código acima cria uma pipeline que checa passo a passo o retorno das funções possibilitando o tratamento personalizado para cada erro que possa acontecer.
+O código acima cria uma _pipeline_ que checa passo a passo o retorno das funções possibilitando o tratamento personalizado para cada erro que possa acontecer.
 
 
 ## <center>And there you have it!</center>
 
 Embora Elixir seja um mundo de funcionalidades e paradigmas diferentes se você possuir um bom entendimento dos tópicos acima você conseguirá se localizar muito bem no código escrito nessa linguagem.
 
-Estão alguns tópicos importantes para você que deseja continuar interagindo com a linguagem:
+Estes são alguns tópicos importantes para você que deseja continuar interagindo com a linguagem:
 
 #### Mix
 _Task runner_ da linguagem (equivalente ao _composer_ em PHP), link para o [guia](https://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html) e [documentação](https://hexdocs.pm/mix/Mix.html)
