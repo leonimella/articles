@@ -9,9 +9,9 @@ Esse repositório contém o texto final de artigos que escrevi no [Medium](https
         - [Dev.to english post](https://dev.to/leonimella/learning-elixir-with-php-help-47mn)
 
 - Docker e Docker Compose um guia para iniciantes.
-    -[Raw MD file]()
+    - [Raw MD file](https://github.com/leonimella/articles/blob/master/dev.to/docker-docker-compose-beginners-guide/pt-br.md)
         - Raw english MD file (comming soon!)
-    -[Dev.to post](https://dev.to/leonimella/docker-e-docker-compose-um-guia-para-iniciantes-48k8)
+    - [Dev.to post](https://dev.to/leonimella/docker-e-docker-compose-um-guia-para-iniciantes-48k8)
         - Dev.to english post (comming soon!)
 
 ## Medium
