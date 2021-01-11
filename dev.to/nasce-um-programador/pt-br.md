@@ -1,5 +1,3 @@
-# Nasce um programador
-
 E ai pessoal, Leoni aqui, voltando a publicar depois de quase um ano sem publicar nada 😮.
 
 Para ganhar um pouco de inércia na criação de conteúdo eu queria contar para vocês como que eu comecei a programar e como construí a minha carreira no desenvolvimento.
@@ -7,6 +5,8 @@ Para ganhar um pouco de inércia na criação de conteúdo eu queria contar para
 Apesar de ser um tema bastante documentado, acredito que **cada pessoa tem uma experiência única** e por isso vim aqui contar um pouco do que passei, então bora lá!
 
 ## Antes da programação só existia o caos!
+<img style="display:block; width:70%; margin: 0 auto;" src="https://media.giphy.com/media/5qoRdabXeT4GY/giphy.gif">
+
 Acho importante dizer logo de cara que eu nem sabia o que era programação, na realidade eu não tinha ideia do que queria fazer da vida.
 
 E os primeiros anos da minha "carreira" refletiu bastante esse problema, pois **sem saber muito bem o que fazer, fui aproveitando as oportunidades que apareciam.**
@@ -97,3 +97,4 @@ Se você gostou desse artigo, não deixe de me seguir aqui, e em outras platafor
 - E não podia faltar, meu perfil no Github: [leonimella](https://github.com/leonimella)
 
 E como sempre, obrigado pelo seu tempo e até a próxima 🖖
+<img style="display:block; width:70%; margin: 0 auto;" src="https://media.giphy.com/media/gtzIP3mpbzh16/giphy.gif">
